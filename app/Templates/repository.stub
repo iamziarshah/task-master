@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\{{ modelName }};
+
+class {{ repositoryName }} implements {{ interfaceName }} {
+    public function all() {
+        return {{ modelName }}::all();
+    }
+
+    public function find($id) {
+        return {{ modelName }}::findOrFail($id);
+    }
+
+    public function create(array $data) {
+        return {{ modelName }}::create($data);
+    }
+
+    public function update($id, array $data) {
+        $item = {{ modelName }}::findOrFail($id);
+        $item->update($data);
+        return $item;
+    }
+
+    public function delete($id) {
+        return {{ modelName }}::destroy($id);
+    }
+}
