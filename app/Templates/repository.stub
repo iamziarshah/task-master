@@ -13,13 +13,13 @@ class {{ repositoryName }} implements {{ interfaceName }} {
         return {{ modelName }}::findOrFail($id);
     }
 
-    public function create(array $data) {
-        return {{ modelName }}::create($data);
+    public function create($request) {
+        return {{ modelName }}::create($request);
     }
 
-    public function update($id, array $data) {
+    public function update($id, $request) {
         $item = {{ modelName }}::findOrFail($id);
-        $item->update($data);
+        $item->update($request);
         return $item;
     }
 
